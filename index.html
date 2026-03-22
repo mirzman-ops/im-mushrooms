@@ -11,7 +11,9 @@ html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,rgba(201,168,76,0.04) 1px,transparent 1px);background-size:30px 30px;pointer-events:none;z-index:0;}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 3.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(30,30,30,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
-.nname{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:0.14em;color:var(--gold);text-transform:uppercase;}
+.nname{display:flex;align-items:center;gap:0.65rem;text-decoration:none;}
+.nlogo{width:32px;height:32px;mix-blend-mode:screen;filter:sepia(1) saturate(3) hue-rotate(5deg) brightness(1.1);}
+.nwordmark{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:0.14em;color:var(--gold);text-transform:uppercase;}
 .nlinks{display:flex;gap:2.5rem;list-style:none;}
 .nlinks a{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
 .nlinks a:hover{color:var(--gold);}
@@ -69,7 +71,10 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2.
 </head>
 <body>
 <nav>
-  <span class="nname">I.M.Mushrooms Ltd.</span>
+  <a class="nname" href="#">
+    <img src="symbol.png" alt="I.M.Mushrooms symbol" class="nlogo">
+    <span class="nwordmark">I.M.Mushrooms</span>
+  </a>
   <ul class="nlinks">
     <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#about">About</a></li>
