@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>I.M.Mushrooms Ltd.</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@300;400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1E1E1E;--card:#252525;--gold:#C9A84C;--pale:#F0D98B;--white:#F5F0E8;--muted:#7A8A9A;--border:rgba(201,168,76,0.14);}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,rgba(201,168,76,0.04) 1px,transparent 1px);background-size:30px 30px;pointer-events:none;z-index:0;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 3.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(30,30,30,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nname{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:0.14em;color:var(--gold);text-transform:uppercase;}
+.nlinks{display:flex;gap:2.5rem;list-style:none;}
+.nlinks a{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.nlinks a:hover{color:var(--gold);}
+.hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 3.5rem 5rem;max-width:900px;}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;gap:0.8rem;}
+.edot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,7vw,6.5rem);font-weight:300;line-height:1.05;margin-bottom:2.5rem;}
+h1 em{font-style:italic;color:var(--gold);}
+.sub{font-size:1rem;line-height:1.85;color:var(--muted);max-width:480px;margin-bottom:3rem;}
+.cta{display:flex;gap:1.5rem;align-items:center;}
+.btnp{display:inline-block;padding:0.85rem 2.2rem;background:var(--gold);color:#1a1a1a;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;transition:background 0.2s,transform 0.2s;}
+.btnp:hover{background:var(--pale);transform:translateY(-2px);}
+.btng{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:2px;transition:color 0.2s;}
+.btng:hover{color:var(--white);}
+.grule{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.25;position:relative;z-index:1;}
+.thesis{position:relative;z-index:1;padding:7rem 3.5rem;display:grid;grid-template-columns:160px 1fr;gap:4rem;align-items:start;max-width:1100px;margin:0 auto;}
+.tlbl{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);padding-top:0.4rem;}
+.tbody{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,2.2vw,2rem);font-weight:300;line-height:1.7;}
+.tbody strong{font-weight:600;color:var(--gold);}
+.port{position:relative;z-index:1;padding:2rem 3.5rem 8rem;max-width:1100px;margin:0 auto;}
+.ph{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--border);padding-bottom:1.25rem;margin-bottom:2.5rem;}
+.ptitle{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);}
+.pcount{font-family:'Cormorant Garamond',serif;font-size:0.88rem;color:var(--muted);}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+.bcard{background:var(--card);padding:3rem;position:relative;overflow:hidden;text-decoration:none;display:block;transition:background 0.3s;}
+.bcard:hover{background:#2c2c2c;}
+.bcard::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--gold);transition:height 0.4s;}
+.bcard:not(.stealth):hover::before{height:100%;}
+.stealth{opacity:0.45;cursor:default;}
+.stealth:hover{background:var(--card);}
+.bi{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:rgba(201,168,76,0.07);position:absolute;top:1.2rem;right:1.8rem;line-height:1;}
+.btag{font-family:'IBM Plex Mono',monospace;font-size:0.56rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
+.bname{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--white);line-height:1.1;margin-bottom:0.5rem;}
+.bdesc{font-size:0.83rem;color:var(--muted);line-height:1.75;max-width:340px;}
+.barrow{position:absolute;bottom:2rem;right:2rem;font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--gold);opacity:0;transform:translateX(-8px);transition:opacity 0.3s,transform 0.3s;}
+.bcard:not(.stealth):hover .barrow{opacity:1;transform:translateX(0);}
+.sbadge{display:inline-block;border:1px solid rgba(201,168,76,0.18);padding:0.25rem 0.7rem;font-family:'IBM Plex Mono',monospace;font-size:0.52rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(201,168,76,0.35);margin-bottom:0.8rem;}
+.founder{position:relative;z-index:1;background:#1a1a1a;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:6rem 3.5rem;}
+.fi{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:240px 1fr;gap:5rem;align-items:center;}
+.flbl{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.8rem;}
+.favatar{width:88px;height:88px;border-radius:50%;background:#2a2a2a;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold);}
+.fname{font-family:'Cormorant Garamond',serif;font-size:1.6rem;margin-top:1.1rem;margin-bottom:0.2rem;}
+.frole{font-family:'IBM Plex Mono',monospace;font-size:0.56rem;letter-spacing:0.12em;color:var(--muted);text-transform:uppercase;}
+.forg{font-family:'IBM Plex Mono',monospace;font-size:0.54rem;letter-spacing:0.1em;color:rgba(201,168,76,0.4);text-transform:uppercase;margin-top:0.3rem;}
+blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,2vw,1.75rem);font-weight:300;font-style:italic;line-height:1.7;border-left:2px solid var(--gold);padding-left:1.8rem;}
+.ctasec{position:relative;z-index:1;padding:8rem 3.5rem;text-align:center;max-width:640px;margin:0 auto;}
+.cey{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.8rem;}
+.ch{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.6rem);font-weight:300;line-height:1.2;margin-bottom:1.8rem;}
+.cs{font-size:0.9rem;color:var(--muted);line-height:1.85;margin-bottom:2.8rem;}
+footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2.2rem 3.5rem;display:flex;justify-content:space-between;align-items:center;background:#1a1a1a;}
+.fl{font-family:'Cormorant Garamond',serif;font-size:0.9rem;color:var(--muted);letter-spacing:0.1em;}
+.fc{font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:rgba(122,138,154,0.4);}
+@media(max-width:768px){nav{padding:1rem 1.5rem;}.nlinks{display:none;}.hero{padding:8rem 1.5rem 4rem;}.thesis{grid-template-columns:1fr;padding:5rem 1.5rem;gap:1.5rem;}.port{padding:2rem 1.5rem 6rem;}.pgrid{grid-template-columns:1fr;}.founder{padding:5rem 1.5rem;}.fi{grid-template-columns:1fr;gap:3rem;}.ctasec{padding:5rem 1.5rem;}footer{flex-direction:column;gap:1rem;padding:2rem 1.5rem;text-align:center;}}
+</style>
+</head>
+<body>
+<nav>
+  <span class="nname">I.M.Mushrooms Ltd.</span>
+  <ul class="nlinks">
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#partners">Partners</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="eyebrow"><div class="edot"></div>Carbon-negative material businesses</div>
+  <h1>Where <em>biology</em><br>outperforms<br>chemistry.</h1>
+  <p class="sub">A Canadian deep-tech holding company building the next generation of carbon-negative material businesses — from Winchester, Ontario to the world.</p>
+  <div class="cta">
+    <a href="#portfolio" class="btnp">View Portfolio</a>
+    <a href="#partners" class="btng">Partner Enquiries →</a>
+  </div>
+</section>
+
+<div class="grule"></div>
+
+<section class="thesis" id="about">
+  <div class="tlbl">Our Thesis</div>
+  <p class="tbody">We identify <strong>whitespace where biological processes solve industrial problems</strong> better than chemistry — on carbon, on performance, and on permanence. Then we build scalable, biosafe businesses around those solutions.</p>
+</section>
+
+<div class="grule"></div>
+
+<section class="port" id="portfolio">
+  <div class="ph">
+    <div class="ptitle">Portfolio Companies</div>
+    <div class="pcount">03 Entities</div>
+  </div>
+  <div class="pgrid">
+    <a href="#" class="bcard">
+      <div class="bi">01</div>
+      <div class="btag">Acoustic Materials · Deep-Tech</div>
+      <div class="bname">AureLign</div>
+      <div class="bdesc">Carbon-negative acoustic panels, grown not manufactured. Closed-loop, biosafe, Canadian-made. Patent-pending.</div>
+      <div class="barrow">Visit AureLign →</div>
+    </a>
+    <a href="#" class="bcard">
+      <div class="bi">02</div>
+      <div class="btag">Carbon Standards · IP</div>
+      <div class="bname">LaVere Green</div>
+      <div class="bdesc">Canada's first carbon permanence standard for biochar in construction materials. Methodology licensing and MRV platform.</div>
+      <div class="barrow">Visit LaVere Green →</div>
+    </a>
+    <div class="bcard stealth" style="grid-column:1/-1;display:flex;align-items:center;gap:2.5rem;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:rgba(201,168,76,0.08);flex-shrink:0;">03</div>
+      <div>
+        <div class="sbadge">In Development · Stealth</div>
+        <div class="bname" style="font-size:1.5rem;opacity:0.4;">Portfolio Company — Advanced Systems</div>
+        <div class="bdesc" style="margin-top:0.4rem;">Technology venture currently in stealth stage. Details withheld pending IP filings and strategic disclosure timing.</div>
+      </div>
+      <div style="margin-left:auto;padding-left:2rem;font-family:'IBM Plex Mono',monospace;font-size:0.52rem;letter-spacing:0.14em;color:rgba(201,168,76,0.18);text-transform:uppercase;white-space:nowrap;flex-shrink:0;">Undisclosed</div>
+    </div>
+  </div>
+</section>
+
+<section class="founder">
+  <div class="fi">
+    <div>
+      <div class="flbl">Founder</div>
+      <div class="favatar">IM</div>
+      <div class="fname">Imran Mirza</div>
+      <div class="frole">Founder & Managing Director</div>
+      <div class="forg">I.M.Mushrooms Ltd. · Winchester, ON</div>
+    </div>
+    <blockquote>"Our biosecurity standard wasn't designed in a lab — it was designed by necessity. That same rigour is our competitive advantage. When the baseline is zero defect, everything else follows."</blockquote>
+  </div>
+</section>
+
+<section class="ctasec" id="partners">
+  <div class="cey">Strategic Partnerships</div>
+  <h2 class="ch">Building Canada's carbon-negative material stack.</h2>
+  <p class="cs">We work with partners who share a long-term view on biological materials, carbon permanence, and Canadian manufacturing.</p>
+  <a href="mailto:imran.mirzman@gmail.com?subject=I.M.Mushrooms Partnership Enquiry" class="btnp">Get in Touch</a>
+</section>
+
+<footer>
+  <div class="fl">I.M.MUSHROOMS LTD. — Winchester, Ontario, Canada</div>
+  <div class="fc">© 2026 I.M.Mushrooms Ltd. All rights reserved.</div>
+</footer>
+</body>
+</html>
